@@ -1,0 +1,55 @@
+Script started on 2020-11-18 12:36:19+0900
+]0;ubuntu@ik1-429-46507: ~/blog/hatena/2020_12_05/failed3[01;32mubuntu@ik1-429-46507[00m:[01;34m~/blog/hatena/2020_12_05/failed3[00m$ ls
+main.go  typescript
+]0;ubuntu@ik1-429-46507: ~/blog/hatena/2020_12_05/failed3[01;32mubuntu@ik1-429-46507[00m:[01;34m~/blog/hatena/2020_12_05/failed3[00m$ go mod init main
+go: creating new go.mod: module main
+]0;ubuntu@ik1-429-46507: ~/blog/hatena/2020_12_05/failed3[01;32mubuntu@ik1-429-46507[00m:[01;34m~/blog/hatena/2020_12_05/failed3[00m$ ca[K[Kgo build m[K[K
+go: finding module for package github.com/docker/docker/api/types
+go: finding module for package github.com/docker/docker/pkg/stdcopy
+go: finding module for package github.com/docker/docker/api/types/container
+go: finding module for package github.com/docker/docker/client
+go: found github.com/docker/docker/api/types in github.com/docker/docker v1.13.1
+go: found github.com/docker/docker/api/types/container in github.com/docker/docker v1.13.1
+go: found github.com/docker/docker/client in github.com/docker/docker v1.13.1
+go: found github.com/docker/docker/pkg/stdcopy in github.com/docker/docker v1.13.1
+go: finding module for package github.com/docker/go-units
+go: finding module for package github.com/docker/go-connections/nat
+go: finding module for package golang.org/x/net/context/ctxhttp
+go: finding module for package github.com/docker/go-connections/tlsconfig
+go: finding module for package github.com/docker/distribution/reference
+go: finding module for package golang.org/x/net/context
+go: finding module for package github.com/docker/go-connections/sockets
+go: finding module for package github.com/pkg/errors
+go: found github.com/docker/go-connections/nat in github.com/docker/go-connections v0.4.0
+go: found github.com/docker/go-units in github.com/docker/go-units v0.4.0
+go: found github.com/docker/distribution/reference in github.com/docker/distribution v2.7.1+incompatible
+go: found github.com/docker/go-connections/sockets in github.com/docker/go-connections v0.4.0
+go: found github.com/docker/go-connections/tlsconfig in github.com/docker/go-connections v0.4.0
+go: found github.com/pkg/errors in github.com/pkg/errors v0.9.1
+go: found golang.org/x/net/context in golang.org/x/net v0.0.0-20201110031124-69a78807bb2b
+go: found golang.org/x/net/context/ctxhttp in golang.org/x/net v0.0.0-20201110031124-69a78807bb2b
+go: finding module for package github.com/opencontainers/go-digest
+go: found github.com/opencontainers/go-digest in github.com/opencontainers/go-digest v1.0.0
+# main
+./main.go:16:14: undefined: client.NewClientWithOpts
+./main.go:16:39: undefined: client.FromEnv
+./main.go:16:55: undefined: client.WithAPIVersionNegotiation
+./main.go:40:53: undefined: container.WaitConditionNotRunning
+]0;ubuntu@ik1-429-46507: ~/blog/hatena/2020_12_05/failed3[01;32mubuntu@ik1-429-46507[00m:[01;34m~/blog/hatena/2020_12_05/failed3[00m$ cat go..[Kmod 
+module main
+
+go 1.15
+
+require (
+	github.com/docker/distribution v2.7.1+incompatible // indirect
+	github.com/docker/docker v1.13.1
+	github.com/docker/go-connections v0.4.0 // indirect
+	github.com/docker/go-units v0.4.0 // indirect
+	github.com/opencontainers/go-digest v1.0.0 // indirect
+	github.com/pkg/errors v0.9.1 // indirect
+	golang.org/x/net v0.0.0-20201110031124-69a78807bb2b // indirect
+)
+]0;ubuntu@ik1-429-46507: ~/blog/hatena/2020_12_05/failed3[01;32mubuntu@ik1-429-46507[00m:[01;34m~/blog/hatena/2020_12_05/failed3[00m$ exit
+exit
+
+Script done on 2020-11-18 12:37:03+0900

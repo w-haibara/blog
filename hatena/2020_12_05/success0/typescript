@@ -1,0 +1,93 @@
+Script started on 2020-11-18 14:55:09+0900
+]0;ubuntu@ik1-429-46507: ~/blog/hatena/2020_12_05/success0[01;32mubuntu@ik1-429-46507[00m:[01;34m~/blog/hatena/2020_12_05/success0[00m$ ls
+main.go  typescript
+]0;ubuntu@ik1-429-46507: ~/blog/hatena/2020_12_05/success0[01;32mubuntu@ik1-429-46507[00m:[01;34m~/blog/hatena/2020_12_05/success0[00m$ cat main.go 
+package main
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/docker/docker/api/types"
+	"github.com/docker/docker/client"
+)
+
+func main() {
+	ctx := context.Background()
+	cli, err := client.NewClientWithOpts(client.FromEnv)
+	if err != nil {
+		panic(err)
+	}
+	cli.NegotiateAPIVersion(ctx)
+
+	containers, err := cli.ContainerList(ctx, types.ContainerListOptions{})
+	if err != nil {
+		panic(err)
+	}
+
+	for _, container := range containers {
+		fmt.Printf("%s %s\n", container.ID[:10], container.Image)
+	}
+}
+]0;ubuntu@ik1-429-46507: ~/blog/hatena/2020_12_05/success0[01;32mubuntu@ik1-429-46507[00m:[01;34m~/blog/hatena/2020_12_05/success0[00m$ go mod init main
+go: creating new go.mod: module main
+]0;ubuntu@ik1-429-46507: ~/blog/hatena/2020_12_05/success0[01;32mubuntu@ik1-429-46507[00m:[01;34m~/blog/hatena/2020_12_05/success0[00m$ go mod init main[4Pcat main.go ls[Kexitgo buildget github.com/docker/docker@mastter
+go: github.com/docker/docker master => v20.10.0-rc1+incompatible
+]0;ubuntu@ik1-429-46507: ~/blog/hatena/2020_12_05/success0[01;32mubuntu@ik1-429-46507[00m:[01;34m~/blog/hatena/2020_12_05/success0[00m$ go build
+go: finding module for package github.com/pkg/errors
+go: finding module for package github.com/docker/go-connections/sockets
+go: finding module for package github.com/opencontainers/image-spec/specs-go/v1
+go: finding module for package github.com/docker/go-connections/nat
+go: finding module for package github.com/opencontainers/go-digest
+go: finding module for package github.com/docker/distribution/reference
+go: finding module for package github.com/docker/go-connections/tlsconfig
+go: finding module for package github.com/sirupsen/logrus
+go: finding module for package google.golang.org/grpc/status
+go: finding module for package github.com/gogo/protobuf/proto
+go: finding module for package github.com/containerd/containerd/platforms
+go: finding module for package github.com/containerd/containerd/errdefs
+go: finding module for package github.com/docker/go-units
+go: finding module for package google.golang.org/grpc/codes
+go: finding module for package github.com/docker/distribution/registry/api/errcode
+go: found github.com/docker/go-connections/nat in github.com/docker/go-connections v0.4.0
+go: found github.com/docker/go-units in github.com/docker/go-units v0.4.0
+go: found github.com/opencontainers/image-spec/specs-go/v1 in github.com/opencontainers/image-spec v1.0.1
+go: found github.com/containerd/containerd/platforms in github.com/containerd/containerd v1.4.1
+go: found github.com/docker/distribution/reference in github.com/docker/distribution v2.7.1+incompatible
+go: found github.com/docker/go-connections/sockets in github.com/docker/go-connections v0.4.0
+go: found github.com/docker/go-connections/tlsconfig in github.com/docker/go-connections v0.4.0
+go: found github.com/opencontainers/go-digest in github.com/opencontainers/go-digest v1.0.0
+go: found github.com/pkg/errors in github.com/pkg/errors v0.9.1
+go: found github.com/containerd/containerd/errdefs in github.com/containerd/containerd v1.4.1
+go: found github.com/docker/distribution/registry/api/errcode in github.com/docker/distribution v2.7.1+incompatible
+go: found github.com/sirupsen/logrus in github.com/sirupsen/logrus v1.7.0
+go: found google.golang.org/grpc/codes in google.golang.org/grpc v1.33.2
+go: found google.golang.org/grpc/status in google.golang.org/grpc v1.33.2
+go: found github.com/gogo/protobuf/proto in github.com/gogo/protobuf v1.3.1
+]0;ubuntu@ik1-429-46507: ~/blog/hatena/2020_12_05/success0[01;32mubuntu@ik1-429-46507[00m:[01;34m~/blog/hatena/2020_12_05/success0[00m$ ls
+go.mod  go.sum  [0m[01;32mmain[0m  main.go  typescript
+]0;ubuntu@ik1-429-46507: ~/blog/hatena/2020_12_05/success0[01;32mubuntu@ik1-429-46507[00m:[01;34m~/blog/hatena/2020_12_05/success0[00m$ ./main 
+]0;ubuntu@ik1-429-46507: ~/blog/hatena/2020_12_05/success0[01;32mubuntu@ik1-429-46507[00m:[01;34m~/blog/hatena/2020_12_05/success0[00m$ docker run --detach alpine
+49511e76b1b86f6f4605a09867e6e03d61c43d0a99a3f0a3f49edb08dd5c09ed
+]0;ubuntu@ik1-429-46507: ~/blog/hatena/2020_12_05/success0[01;32mubuntu@ik1-429-46507[00m:[01;34m~/blog/hatena/2020_12_05/success0[00m$ docker ps -a[K[K[K
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+]0;ubuntu@ik1-429-46507: ~/blog/hatena/2020_12_05/success0[01;32mubuntu@ik1-429-46507[00m:[01;34m~/blog/hatena/2020_12_05/success0[00m$ docker ps[Krun --detach alpine[K[K[K[K[K[Knginx
+Unable to find image 'nginx:latest' locally
+latest: Pulling from library/nginx
+
+[1A[2Kbb79b6b2107f: Pulling fs layer [1B
+[1A[2K5a9f1c0027a7: Pulling fs layer [1B
+[1A[2Kb5c20b2b484f: Pulling fs layer [1B
+[1A[2K166a2418f7e8: Pulling fs layer [1B
+[1A[2K1966ea362d23: Pulling fs layer [1B[2A[2K166a2418f7e8: Waiting [2B[1A[2K1966ea362d23: Waiting [1B[3A[2Kb5c20b2b484f: Downloading     424B/598B[3B[3A[2Kb5c20b2b484f: Downloading     598B/598B[3B[3A[2Kb5c20b2b484f: Verifying Checksum [3B[3A[2Kb5c20b2b484f: Download complete [3B[5A[2Kbb79b6b2107f: Downloading  277.5kB/27.09MB[5B[4A[2K5a9f1c0027a7: Downloading  265.5kB/26.49MB[4B[4A[2K5a9f1c0027a7: Downloading  822.5kB/26.49MB[4B[5A[2Kbb79b6b2107f: Downloading  1.121MB/27.09MB[5B[4A[2K5a9f1c0027a7: Downloading  1.924MB/26.49MB[4B[5A[2Kbb79b6b2107f: Downloading  2.243MB/27.09MB[5B[4A[2K5a9f1c0027a7: Downloading  2.759MB/26.49MB[4B[5A[2Kbb79b6b2107f: Downloading    2.8MB/27.09MB[5B[4A[2K5a9f1c0027a7: Downloading  3.591MB/26.49MB[4B[5A[2Kbb79b6b2107f: Downloading  3.918MB/27.09MB[5B[4A[2K5a9f1c0027a7: Downloading  4.426MB/26.49MB[4B[5A[2Kbb79b6b2107f: Downloading  4.754MB/27.09MB[5B[2A[2K166a2418f7e8: Downloading     424B/893B[2B[2A[2K166a2418f7e8: Downloading     893B/893B[2B[2A[2K166a2418f7e8: Verifying Checksum [2B[2A[2K166a2418f7e8: Download complete [2B[4A[2K5a9f1c0027a7: Downloading  5.258MB/26.49MB[4B[5A[2Kbb79b6b2107f: Downloading  5.589MB/27.09MB[5B[4A[2K5a9f1c0027a7: Downloading  6.093MB/26.49MB[4B[5A[2Kbb79b6b2107f: Downloading  6.146MB/27.09MB[5B[4A[2K5a9f1c0027a7: Downloading  6.929MB/26.49MB[4B[5A[2Kbb79b6b2107f: Downloading  6.982MB/27.09MB[5B[4A[2K5a9f1c0027a7: Downloading  7.756MB/26.49MB[4B[5A[2Kbb79b6b2107f: Downloading  7.826MB/27.09MB[5B[4A[2K5a9f1c0027a7: Downloading  8.592MB/26.49MB[4B[5A[2Kbb79b6b2107f: Downloading  8.661MB/27.09MB[5B[4A[2K5a9f1c0027a7: Downloading  9.427MB/26.49MB[4B[1A[2K1966ea362d23: Downloading     424B/664B[1B[1A[2K1966ea362d23: Downloading     664B/664B[1B[1A[2K1966ea362d23: Verifying Checksum [1B[1A[2K1966ea362d23: Download complete [1B[5A[2Kbb79b6b2107f: Downloading  9.497MB/27.09MB[5B[4A[2K5a9f1c0027a7: Downloading  10.26MB/26.49MB[4B[5A[2Kbb79b6b2107f: Downloading  10.33MB/27.09MB[5B[4A[2K5a9f1c0027a7: Downloading  11.07MB/26.49MB[4B[5A[2Kbb79b6b2107f: Downloading  11.17MB/27.09MB[5B[4A[2K5a9f1c0027a7: Downloading  11.63MB/26.49MB[4B[5A[2Kbb79b6b2107f: Downloading     12MB/27.09MB[5B[4A[2K5a9f1c0027a7: Downloading  12.46MB/26.49MB[4B[4A[2K5a9f1c0027a7: Downloading  13.02MB/26.49MB[4B[5A[2Kbb79b6b2107f: Downloading  12.84MB/27.09MB[5B[4A[2K5a9f1c0027a7: Downloading  13.86MB/26.49MB[4B[5A[2Kbb79b6b2107f: Downloading  13.68MB/27.09MB[5B[4A[2K5a9f1c0027a7: Downloading  14.69MB/26.49MB[4B[5A[2Kbb79b6b2107f: Downloading  14.24MB/27.09MB[5B[5A[2Kbb79b6b2107f: Downloading  15.08MB/27.09MB[5B[4A[2K5a9f1c0027a7: Downloading  15.53MB/26.49MB[4B[5A[2Kbb79b6b2107f: Downloading  15.91MB/27.09MB[5B[4A[2K5a9f1c0027a7: Downloading  16.36MB/26.49MB[4B[5A[2Kbb79b6b2107f: Downloading  16.75MB/27.09MB[5B[4A[2K5a9f1c0027a7: Downloading  16.92MB/26.49MB[4B[5A[2Kbb79b6b2107f: Downloading  17.58MB/27.09MB[5B[4A[2K5a9f1c0027a7: Downloading  17.75MB/26.49MB[4B[4A[2K5a9f1c0027a7: Downloading  18.59MB/26.49MB[4B[5A[2Kbb79b6b2107f: Downloading  18.43MB/27.09MB[5B[4A[2K5a9f1c0027a7: Downloading  19.42MB/26.49MB[4B[5A[2Kbb79b6b2107f: Downloading  19.26MB/27.09MB[5B[4A[2K5a9f1c0027a7: Downloading  20.26MB/26.49MB[4B[5A[2Kbb79b6b2107f: Downloading   20.1MB/27.09MB[5B[4A[2K5a9f1c0027a7: Downloading  21.09MB/26.49MB[4B[5A[2Kbb79b6b2107f: Downloading  20.93MB/27.09MB[5B[4A[2K5a9f1c0027a7: Downloading  21.92MB/26.49MB[4B[5A[2Kbb79b6b2107f: Downloading  21.76MB/27.09MB[5B[4A[2K5a9f1c0027a7: Downloading  22.76MB/26.49MB[4B[5A[2Kbb79b6b2107f: Downloading   22.6MB/27.09MB[5B[4A[2K5a9f1c0027a7: Downloading  23.58MB/26.49MB[4B[5A[2Kbb79b6b2107f: Downloading  23.44MB/27.09MB[5B[4A[2K5a9f1c0027a7: Downloading  24.41MB/26.49MB[4B[5A[2Kbb79b6b2107f: Downloading  24.28MB/27.09MB[5B[4A[2K5a9f1c0027a7: Downloading  25.25MB/26.49MB[4B[5A[2Kbb79b6b2107f: Downloading  25.12MB/27.09MB[5B[4A[2K5a9f1c0027a7: Downloading  26.09MB/26.49MB[4B[5A[2Kbb79b6b2107f: Downloading  25.95MB/27.09MB[5B[4A[2K5a9f1c0027a7: Verifying Checksum [4B[4A[2K5a9f1c0027a7: Download complete [4B[5A[2Kbb79b6b2107f: Downloading  26.79MB/27.09MB[5B[5A[2Kbb79b6b2107f: Verifying Checksum [5B[5A[2Kbb79b6b2107f: Download complete [5B[5A[2Kbb79b6b2107f: Extracting  294.9kB/27.09MB[5B[5A[2Kbb79b6b2107f: Extracting  4.129MB/27.09MB[5B[5A[2Kbb79b6b2107f: Extracting  8.847MB/27.09MB[5B[5A[2Kbb79b6b2107f: Extracting  13.57MB/27.09MB[5B[5A[2Kbb79b6b2107f: Extracting   17.4MB/27.09MB[5B[5A[2Kbb79b6b2107f: Extracting  21.82MB/27.09MB[5B[5A[2Kbb79b6b2107f: Extracting  24.77MB/27.09MB[5B[5A[2Kbb79b6b2107f: Extracting  26.25MB/27.09MB[5B[5A[2Kbb79b6b2107f: Extracting  27.09MB/27.09MB[5B[5A[2Kbb79b6b2107f: Pull complete [5B[4A[2K5a9f1c0027a7: Extracting  294.9kB/26.49MB[4B[4A[2K5a9f1c0027a7: Extracting  6.193MB/26.49MB[4B[4A[2K5a9f1c0027a7: Extracting  12.39MB/26.49MB[4B[4A[2K5a9f1c0027a7: Extracting  17.69MB/26.49MB[4B[4A[2K5a9f1c0027a7: Extracting     23MB/26.49MB[4B[4A[2K5a9f1c0027a7: Extracting  26.25MB/26.49MB[4B[4A[2K5a9f1c0027a7: Extracting  26.49MB/26.49MB[4B[4A[2K5a9f1c0027a7: Pull complete [4B[3A[2Kb5c20b2b484f: Extracting     598B/598B[3B[3A[2Kb5c20b2b484f: Extracting     598B/598B[3B[3A[2Kb5c20b2b484f: Pull complete [3B[2A[2K166a2418f7e8: Extracting     893B/893B[2B[2A[2K166a2418f7e8: Extracting     893B/893B[2B[2A[2K166a2418f7e8: Pull complete [2B[1A[2K1966ea362d23: Extracting     664B/664B[1B[1A[2K1966ea362d23: Extracting     664B/664B[1B[1A[2K1966ea362d23: Pull complete [1BDigest: sha256:0ed046b44b0363ff1168457f2c7720f9cf475f39fb9e7d9b41ae328a3e57a839
+Status: Downloaded newer image for nginx:latest
+92f9c40cf0d2e93765c6d716c71af360088883f9acaa5c0669ae96017ec98743
+]0;ubuntu@ik1-429-46507: ~/blog/hatena/2020_12_05/success0[01;32mubuntu@ik1-429-46507[00m:[01;34m~/blog/hatena/2020_12_05/success0[00m$ docker run --detach nginxp[Krun --detach alpine./main [Kls[K./main docker run --detach alpinep[Krun --detach nginx[Kdocker run --detach nginx[Kdocker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
+92f9c40cf0d2        nginx               "/docker-entrypoint.…"   12 seconds ago      Up 11 seconds       80/tcp              vigorous_yonath
+]0;ubuntu@ik1-429-46507: ~/blog/hatena/2020_12_05/success0[01;32mubuntu@ik1-429-46507[00m:[01;34m~/blog/hatena/2020_12_05/success0[00m$ docker psrun --detach nginxps[K[K./main 
+92f9c40cf0 nginx
+]0;ubuntu@ik1-429-46507: ~/blog/hatena/2020_12_05/success0[01;32mubuntu@ik1-429-46507[00m:[01;34m~/blog/hatena/2020_12_05/success0[00m$ exti[K[Kit
+exit
+
+Script done on 2020-11-18 14:57:16+0900

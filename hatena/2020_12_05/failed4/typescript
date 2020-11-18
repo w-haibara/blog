@@ -1,0 +1,35 @@
+Script started on 2020-11-18 12:38:21+0900
+]0;ubuntu@ik1-429-46507: ~/blog/hatena/2020_12_05/failed4[01;32mubuntu@ik1-429-46507[00m:[01;34m~/blog/hatena/2020_12_05/failed4[00m$ go mod init main
+go: creating new go.mod: module main
+]0;ubuntu@ik1-429-46507: ~/blog/hatena/2020_12_05/failed4[01;32mubuntu@ik1-429-46507[00m:[01;34m~/blog/hatena/2020_12_05/failed4[00m$ go gmod init mainexit[Kcat go.mod [3Pgo buildmod init mainls[Kexitcd failed3/[7Pexticd ..[3Plsgo buildmod init main[4P[C[C[C[C[C[C[C[C[C[1Pcat main.c [7Pexit[2Plsgo buildcat go.mod go get github.com/docker/docker[15Pmod init mainls[Kcat main.go [8Pexit./main ls[Kgo buildcat go.mod [3Pgo buildls[Kgo buildcat go.mod ls[Kgo get github.com/docker/docker@masteer[A]0;ubuntu@ik1-429-46507: ~/blog/hatena/2020_12_05/failed4[01;32mubuntu@ik1-429-46507[00m:[01;34m~/blog/hatena/2020_12_05/failed4[00m$ ls[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cgo get github.com/docker/docker@masteer[K[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K
+go: github.com/docker/docker upgrade => v1.13.1
+]0;ubuntu@ik1-429-46507: ~/blog/hatena/2020_12_05/failed4[01;32mubuntu@ik1-429-46507[00m:[01;34m~/blog/hatena/2020_12_05/failed4[00m$ go build
+go: finding module for package github.com/docker/go-connections/nat
+go: finding module for package github.com/docker/go-units
+go: finding module for package github.com/docker/go-connections/tlsconfig
+go: finding module for package github.com/pkg/errors
+go: finding module for package github.com/docker/go-connections/sockets
+go: finding module for package github.com/docker/distribution/reference
+go: finding module for package golang.org/x/net/context
+go: finding module for package golang.org/x/net/context/ctxhttp
+go: found github.com/docker/go-connections/nat in github.com/docker/go-connections v0.4.0
+go: found github.com/docker/go-units in github.com/docker/go-units v0.4.0
+go: found github.com/docker/distribution/reference in github.com/docker/distribution v2.7.1+incompatible
+go: found github.com/docker/go-connections/sockets in github.com/docker/go-connections v0.4.0
+go: found github.com/docker/go-connections/tlsconfig in github.com/docker/go-connections v0.4.0
+go: found github.com/pkg/errors in github.com/pkg/errors v0.9.1
+go: found golang.org/x/net/context in golang.org/x/net v0.0.0-20201110031124-69a78807bb2b
+go: found golang.org/x/net/context/ctxhttp in golang.org/x/net v0.0.0-20201110031124-69a78807bb2b
+go: finding module for package github.com/opencontainers/go-digest
+go: found github.com/opencontainers/go-digest in github.com/opencontainers/go-digest v1.0.0
+# main
+./main.go:16:14: undefined: client.NewClientWithOpts
+./main.go:16:39: undefined: client.FromEnv
+./main.go:16:55: undefined: client.WithAPIVersionNegotiation
+./main.go:40:53: undefined: container.WaitConditionNotRunning
+]0;ubuntu@ik1-429-46507: ~/blog/hatena/2020_12_05/failed4[01;32mubuntu@ik1-429-46507[00m:[01;34m~/blog/hatena/2020_12_05/failed4[00m$ exit
+exit
+
+Script done on 2020-11-18 12:38:50+0900
